@@ -1,0 +1,11 @@
+﻿function tf = should_retry_uqlab_reinitialize(ME)
+% should_retry_uqlab_reinitialize: Helper function in the AFOSM-SVR modular workflow.
+msg = lower(string(ME.message));
+tf = contains(msg, "not found in the uqlab path") || ...
+    contains(msg, "please run uqlab -reinitialize") || ...
+    contains(msg, "uq_model") || ...
+    (contains(msg, "module") && contains(msg, "uqlab path"));
+end
+
+
+
